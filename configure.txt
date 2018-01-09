@@ -1,0 +1,5 @@
+[configdesign]
+targetFasta:TestPhaseGene.N4N20NGGN3.fasta.txt
+model:eSpCas9
+normalization:Yes
+prefix:test
