@@ -29,6 +29,6 @@ The configure file is used to set all the necessary parameters and tell the prog
 
 **model**: This software provides two options to choose a model to predict sgRNA activity, "Cas9" and "eSpCas9". For the details, please read our paper. Briefly, "Cas9" refers to the wild type Cas9 nuclease, which is currently most widely used in CRISPR/Cas genome editing. By contrast, "eSpCas9" is a off-target-reducing mutant of "Cas9" with three amino acid mutations.  
 
-**normalization**: Because we use Z score of the original dataset to train the model, hence the output for each sgRNA is a real number typically located between (-100, 100). 
+**normalization**: Because we use Z score of the original dataset to train the model, hence the output for each sgRNA is a real number typically located between (0, 50). To normalize the result, we provide here an option to linearly project the result onto (0, 1). "Yes" or "No" should be specified here. 
 
 **prefix**: prefix used for naming of all output files, keep it simple. For example, "myprediction" is fine.
