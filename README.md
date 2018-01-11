@@ -32,3 +32,13 @@ The configure file is used to set all the necessary parameters and tell the prog
 **normalization**: Because we use Z score of the original dataset to train the model, hence the output for each sgRNA is a real number typically located between (0, 50). To normalize the result, we provide here an option to linearly project the result onto (0, 1). "Yes" or "No" should be specified here. 
 
 **prefix**: prefix used for naming of all output files, keep it simple. For example, "myprediction" is fine.
+
+Below is **an example configure file with default parameters**.
+
+parameter|value
+---------|-----
+[configdesign]
+targetFasta:|example_target.fasta
+model:|Cas9
+normalization:|Yes
+prefix:|myprediction
