@@ -57,57 +57,10 @@ python sgRNA_activity_predict_main.py example_configure.txt
 Check [here](./image/successful_running.png) for the output during a successful running of the abovementioned test.
 
 ## Output description
-The output files will be organized in the subdirectory whose name is specified by the 'prefix' option in configure file under the working directory (prefiex/). We term this subdirectory 'result directory' thereafter.
+**prefix_result.txt**: file in .csv format (tab delimiter) with one header line containing ID and the activity score for each sgRNA.
 
-You can find many files under the result directory.
-
-[your result directory after running the test](./image/resultdir_after_example_running.png)
-
-Below is the description. For the mathematical processing, see our paper. **All .csv flat files use tab as delimiter unless mentioned**
-
-**prefix.N20.fasta.txt**: sgRNA library sequences (N20) in .fasta format, including negative control sgRNAs if it is specified in the configure file. **This file, after adding designed flanking nucleotides, can be subjected to microarray based oligomer synthesis** to prepare the sgRNA library. 
-
-**prefix.N20NGG.fasta.txt**: The reverse complementary of target region of each sgRNA including the PAM site in .fasta format.
-
-**prefix.sgRNA_statistics.txt**: position information within relevant gene coding region and the GC content of each designed sgRNA in .csv format.
-
-sgRNAID|sgRNA_position_in_gene |GCcontent
--------|-----------------------|---------
-insI1b4284_32|0.028|39.13
-...|...|...
-
-**prefix.cluster.txt**: Clusters of genes with homologs (see Step 2, "Coping with multiple copy issue" section). The file has no header line and uses tab as delimiter. It is consisted of two columns: cluster name and the genes in each cluster. Genes in one cluster are separated by comma.
-
-araFb1901|araFb1901
+sgRNAID|score
 -------|--------------------
-yjhXb4566|yjhXb4566
-tufAb3339|tufAb3339,tufBb3980
+pyrC_259|0.765076211102
+pyrD_534|0.561630568706
 ...|...
-
-**prefix.gene_statistics.txt**: file in .csv format with one header line contains the length and the designed sgRNA numbers of each gene.
-
-gene_name|gene_length|sgRNA_number_in_gene
----------|-----------|--------------------
-ydcCb1460|1137|0
-insI1b4284|1152|10
-pinRb1374|591|9
-
-**prefix.fasta.txt**: target gene sequences in .fasta format. It is similar to the input gene fasta file. For genome-wide sgRNA library design, we use the combination of gene and synonym (.ptt or .rnt annotation file) to rename each gene. Hence, we give the refined .fasta file with new gene names for some convenience in following usage.
-
-**N20_library.csv**: the sgRNA library file is at .csv formate **containing one header line**, in which there are three columns in order of id, sequence and gene respectively. **Use comma as delimiter**. If negative control (NC) sgRNAs are within this synthetic library (specified in configure file), name them NCx and assign '0' at 'gene' column of these sgRNAs. This file is used as input for the data processing subpackage after pooled screening experiment and NGS.
-
-id|sequence|gene
---|--------|----
-sgRNA1|ATCCCCCCCCCCGGGGG|recA
-NC1|TGTGTGTGTGTGTGTGTGTG|0
-...|...|...
-
-**sgRNA_position.txt**: Flat file of sgRNA position (relative location of sgRNA in the coding region) information in gene **without header line**. The file contains three columns in order of gene name, sgRNAid and the relative position of sgRNA in the gene. Actually, you can also find this file as output of our library design subpackage. This file is also used as input for the data processing subpackage after pooled screening experiment and NGS.
-
-rsmE|rsmE_9|0.012
-----|------|-----
-rsmE|rsmE_10|0.014
-0|NC1|0
-...|...|...
-
-Two .png figures use histogram to summarize the basic information of [number of sgRNA per gene](./image/The_distrution_of_sgRNA_number_per_gene.png) and [position of sgRNAs in the coding region of relevant genes](./image/The_distrution_of_sgRNA_position_per_gene.png).
