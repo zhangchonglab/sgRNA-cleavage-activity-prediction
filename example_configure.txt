@@ -2,4 +2,4 @@
 targetFasta:example_target.fasta
 model:Cas9
 normalization:Yes
-prefix:myprediction
+prefix:example
