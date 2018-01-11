@@ -41,7 +41,7 @@ parameter|value
 targetFasta:|example_target.fasta
 model:|Cas9
 normalization:|Yes
-prefix:|myprediction
+prefix:|example
 
 ### Step 4：Run the pipeline
 Open the command line window (for example, terminal in Macbook), cd to the working directory and run the analysis pipeline.
