@@ -150,7 +150,7 @@ def get_feature_main():
     ###########################################
     # check every sgRNA in the fasta file
     for rec in sgRNAfasta:
-        sgRNAfastaDic[rec.id]=str(rec.seq)
+        sgRNAfastaDic[rec.id]=str(rec.seq).upper()
         sgrnaFeatureDic[rec.id]={}
     ###########################################
     featureName=[]
